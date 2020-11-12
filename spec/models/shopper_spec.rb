@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Shopper, type: :model do
   describe 'associations' do
-    it { should belong_to(:order) }
+    it { should have_many(:orders).dependent(:destroy) }
   end
 
   describe 'validations' do
