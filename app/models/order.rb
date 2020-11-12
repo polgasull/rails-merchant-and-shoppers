@@ -1,8 +1,6 @@
 class Order < ApplicationRecord
-  has_many :merchants, dependent: :destroy
-  has_many :shoppers, dependent: :destroy
+  belongs_to :merchant
+  belongs_to :shopper
 
-  validates :merchant_id, presence: true
-  validates :shopper_id, presence: true
   validates :amount, presence: true
 end

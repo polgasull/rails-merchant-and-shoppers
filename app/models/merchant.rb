@@ -1,5 +1,5 @@
 class Merchant < ApplicationRecord
-  belongs_to :order
+  has_many :orders, dependent: :destroy
 
   validates :name, presence: true
   validates :email, presence: true, uniqueness: true

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_12_055456) do
+ActiveRecord::Schema.define(version: 2020_11_12_054618) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,14 +21,12 @@ ActiveRecord::Schema.define(version: 2020_11_12_055456) do
     t.string "cif", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "order_id", null: false
     t.index ["cif"], name: "index_merchants_on_cif", unique: true
     t.index ["email"], name: "index_merchants_on_email", unique: true
-    t.index ["order_id"], name: "index_merchants_on_order_id"
   end
 
   create_table "orders", force: :cascade do |t|
-    t.decimal "amount"
+    t.float "amount"
     t.datetime "completed_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -44,14 +42,10 @@ ActiveRecord::Schema.define(version: 2020_11_12_055456) do
     t.string "nif", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "order_id", null: false
     t.index ["email"], name: "index_shoppers_on_email", unique: true
     t.index ["nif"], name: "index_shoppers_on_nif", unique: true
-    t.index ["order_id"], name: "index_shoppers_on_order_id"
   end
 
-  add_foreign_key "merchants", "orders"
   add_foreign_key "orders", "merchants"
   add_foreign_key "orders", "shoppers"
-  add_foreign_key "shoppers", "orders"
 end
