@@ -1,0 +1,6 @@
+class OrdersController < ApplicationController
+  def index
+    @orders_completed = Order.all
+    json_response(@orders_completed)
+  end
+end
