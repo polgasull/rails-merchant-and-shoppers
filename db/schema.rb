@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_12_200526) do
+ActiveRecord::Schema.define(version: 2020_11_12_202603) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(version: 2020_11_12_200526) do
     t.bigint "shopper_id", null: false
     t.bigint "disbursement_id"
     t.float "disbursement_amount"
+    t.float "sequra_comission"
     t.index ["disbursement_id"], name: "index_orders_on_disbursement_id"
     t.index ["merchant_id"], name: "index_orders_on_merchant_id"
     t.index ["shopper_id"], name: "index_orders_on_shopper_id"

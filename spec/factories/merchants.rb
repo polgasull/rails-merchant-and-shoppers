@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :merchant do
-    name { "MyString" }
-    email { "MyString" }
-    cif { "MyString" }
+    name { Faker::Name.name }
+    email { Faker::Internet.email }
+    cif { "B11122233" }
   end
 end
