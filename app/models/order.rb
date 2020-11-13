@@ -16,8 +16,8 @@ class Order < ApplicationRecord
     orders = Order.completed
     orders.each do |order|
       order.update(
-        disbursement_amount: calculate_disburse_amount(order.amount),
-        sequra_comission: calculate_sequra_comission(order.amount)
+        disbursement_amount: calculate_disburse_amount(order.amount).round(2),
+        sequra_comission: calculate_sequra_comission(order.amount).round(2)
       )
     end
   end
