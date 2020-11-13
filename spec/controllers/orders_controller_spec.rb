@@ -5,7 +5,13 @@ RSpec.describe 'Orders API', type: :request do
   describe 'GET /orders' do
     let!(:shopper) { FactoryBot.create(:shopper) }
     let!(:merchant) { FactoryBot.create(:merchant) }
-    let!(:orders) { FactoryBot.create_list(:order, 10, shopper_id: shopper.id, merchant_id: merchant.id) }
+    let!(:orders) { 
+      FactoryBot.create_list(:order, 
+        10, 
+        shopper_id: shopper.id, 
+        merchant_id: merchant.id,
+        completed_at: "2018-01-05T06:08:53.000Z") 
+      }
 
     before { get '/orders' }
 
